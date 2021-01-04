@@ -1,20 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+function Todo(props) {
+  return (
+    <li>
+      <h3>{props.text}</h3>
+    </li>
+  );
+}
+
 function App() {
   return (
     <div>
       <h1>Ma liste de courses</h1>
       <ul>
-        <li>
-          <h3>Bananes</h3>
-        </li>
-        <li>
-          <h3>Poires</h3>
-        </li>
-        <li>
-          <h3>Chocolat</h3>
-        </li>
+        <Todo text="Bananes" />
+        <Todo text="Frites" />
+        <Todo text="Poires" />
+        <Todo text="Chocolat" />
+        <Todo text="Poulet" />
       </ul>
     </div>
   );
