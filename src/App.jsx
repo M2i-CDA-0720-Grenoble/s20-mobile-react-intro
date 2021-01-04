@@ -2,7 +2,12 @@ import './App.css';
 
 import TodoList from './components/TodoList';
 
-function App() {
+// Cette façon d'écrire des fonctions est la nouvelle écriture en ES6
+// Ces deux écritures sont équivalentes:
+//
+// const myFunction = (param) => { return param; }
+// function myFunction(param) { return param; }
+const App = () => {
   const todos = [
     'Bananes',
     'Frites',
