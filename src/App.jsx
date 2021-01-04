@@ -1,8 +1,7 @@
 import './App.css';
 
 import TodoList from './components/TodoList';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Layout from './components/Layout';
 
 // Cette façon d'écrire des fonctions est la nouvelle écriture en ES6
 // Ces deux écritures sont équivalentes:
@@ -21,14 +20,10 @@ const App = () => {
   ];
 
   return (
-    <div className="App">
-      <Header />
-      <main className="App-main">
-        <h1 className="App-title">Ma liste de courses</h1>
-        <TodoList todos={todos} />
-      </main>
-      <Footer />
-    </div>
+    <Layout>
+      <h1>Ma liste de courses</h1>
+      <TodoList todos={todos} />
+    </Layout>
   );
 }
 

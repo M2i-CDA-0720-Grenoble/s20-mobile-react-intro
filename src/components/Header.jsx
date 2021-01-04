@@ -6,10 +6,10 @@ const items = [
   { text: 'Contact', href: '/contact' },
 ];
 
-const NavItem = ({ text, href }) =>
+const NavItem = ({ href, children }) =>
   <li className="Header-navitem">
     <a href={href}>
-      {text}
+      {children}
     </a>
   </li>
 ;
@@ -21,7 +21,10 @@ const Header = () =>
       <ul className="Header-navitem-list">
         {
           items.map(
-            (item, index) => <NavItem key={index} text={item.text} href={item.href} />
+            (item, index) =>
+              <NavItem key={index} href={item.href}>
+                {item.text}
+              </NavItem>
           )
         }
       </ul>
