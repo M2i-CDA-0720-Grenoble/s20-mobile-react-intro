@@ -1,8 +1,12 @@
 .App {
-    max-width: 700px;
-    margin: 0 auto;
+
 }
 
 .App-title {
     
+}
+
+.App-main {
+    max-width: 700px;
+    margin: 0 auto;
 }
