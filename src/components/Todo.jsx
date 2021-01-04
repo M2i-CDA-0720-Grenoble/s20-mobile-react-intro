@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Todo.css';
 
 // Lorsque l'on veut définir une fonction qui ne fait que renvoyer une valeur
@@ -15,11 +16,15 @@ import './Todo.css';
 // const { text } = props;
 // Qui est elle-même l'équivalent de:
 // const text = props.text;
-const Todo = ({ text }) => 
-  <li className="Todo">
-    <input type="checkbox" className="Todo-check" />
-    <h3 className="Todo-text">{text}</h3>
-  </li>
-;
+const Todo = ({ text }) => {
+  const [done, setDone] = useState(false);
+
+  return (
+    <li className="Todo">
+      <input type="checkbox" className="Todo-check" onChange={(event) => setDone(event.target.checked)} />
+      <h3 className={ 'Todo-text' + (done ? ' done' : '') }>{text}</h3>
+    </li>
+  );
+}
 
 export default Todo;

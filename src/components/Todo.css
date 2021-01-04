@@ -21,3 +21,8 @@
 .Todo-text {
     margin: 0;
 }
+
+.Todo-text.done {
+    color: lightgrey;
+    text-decoration: line-through;
+}
