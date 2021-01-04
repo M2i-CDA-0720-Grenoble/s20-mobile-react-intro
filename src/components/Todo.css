@@ -1,0 +1,22 @@
+.Todo {
+    border: 1px solid lightgray;
+    border-radius: .25em;
+    list-style: none;
+    padding: .5em 1em;
+    display: flex;
+    align-items: center;
+    margin-bottom: .5em;
+    transition: background-color .3s ease;
+}
+
+.Todo:hover {
+    background-color: #f8f8f8;
+}
+
+.Todo-check {
+    margin-right: 1em;
+}
+
+.Todo-text {
+    margin: 0;
+}

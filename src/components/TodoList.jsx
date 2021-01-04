@@ -1,8 +1,10 @@
+import './TodoList.css';
+
 import Todo from './Todo';
 
 function TodoList(props) {
   return (
-    <ul>
+    <ul className="TodoList">
       {
         props.todos.map(
           function(text) {
