@@ -10,17 +10,34 @@ function Todo(props) {
   );
 }
 
+function TodoList(props) {
+  return (
+    <ul>
+      {
+        props.todos.map(
+          function(text) {
+            return <Todo text={text} />
+          }
+        )
+      }
+    </ul>
+  );
+}
+
 function App() {
+  const todos = [
+    'Bananes',
+    'Frites',
+    'Poires',
+    'Chocolat',
+    'Poulet',
+    'Produit vaisselle'
+  ];
+
   return (
     <div>
       <h1>Ma liste de courses</h1>
-      <ul>
-        <Todo text="Bananes" />
-        <Todo text="Frites" />
-        <Todo text="Poires" />
-        <Todo text="Chocolat" />
-        <Todo text="Poulet" />
-      </ul>
+      <TodoList todos={todos} />
     </div>
   );
 }
