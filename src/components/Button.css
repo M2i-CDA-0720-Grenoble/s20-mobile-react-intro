@@ -1,0 +1,60 @@
+.Button {
+    position: relative;
+    border: none;
+    border-radius: .25em;
+    cursor: pointer;
+    padding: .5em .75em;
+    z-index: 1;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2); 
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    transition: transform .1s ease,
+        box-shadow .1s ease,
+        -webkit-box-shadow .1s ease
+    ;
+}
+
+.Button:after {
+    position: absolute;
+    content: '';
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    left: 25%;
+    opacity: 0;
+    background-color: white;
+    z-index: -1;
+    border-radius: inherit;
+    transition:
+        opacity .3s ease,
+        width .3s ease,
+        left .3s ease
+    ;
+}
+
+.Button:hover:after {
+    width: 100%;
+    left: 0;
+    opacity: .3;
+}
+
+.Button:focus {
+    outline: none;
+}
+
+.Button:active {
+    transform: translateY(2px);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.1); 
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.1);
+}
+
+.Button.dark {
+    color: white;
+}
+
+.Button.red {
+    background-color: #E74C3C;
+}
+
+.Button.blue {
+    background-color: #2276E3;
+}

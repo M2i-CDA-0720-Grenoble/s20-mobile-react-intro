@@ -1,5 +1,7 @@
-import { useState } from 'react';
 import './Todo.css';
+import { useState } from 'react';
+import { FaTrashAlt } from "react-icons/fa";
+import { Button } from '.';
 
 // On peut "extraire" des propriétés des object JavaScript et les assigner
 // automatiquement à des variables portant le même nom avec l'écriture:
@@ -17,6 +19,11 @@ const Todo = ({ text }) => {
     <li className="Todo">
       <input type="checkbox" className="Todo-check" onChange={(event) => setDone(event.target.checked)} />
       <h3 className={ 'Todo-text' + (done ? ' done' : '') }>{text}</h3>
+      <div className="Todo-icons">
+        <Button color="red" dark>
+          <FaTrashAlt />
+        </Button>
+      </div>
     </li>
   );
 }

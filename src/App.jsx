@@ -1,7 +1,8 @@
 import './App.css';
 
 import { useState } from 'react';
-import { Layout, TodoList } from './components';
+import { RiMenuAddLine } from 'react-icons/ri';
+import { Button, Layout, TodoList } from './components';
 
 // Cette façon d'écrire des fonctions est la nouvelle écriture en ES6
 // Ces deux écritures sont équivalentes:
@@ -46,7 +47,9 @@ const App = () => {
           onChange={(event) => setNewTodo(event.target.value)}
           value={newTodo}
         />
-        <input type="submit" />
+        <Button color="blue" dark>
+          <RiMenuAddLine /> Ajouter
+        </Button>
       </form>
     </Layout>
   );

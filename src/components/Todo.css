@@ -14,15 +14,19 @@
 }
 
 .Todo-check {
-    margin-right: 1em;
     cursor: pointer;
 }
 
 .Todo-text {
-    margin: 0;
+    margin: 0 1em;
+    flex-grow: 1;
 }
 
 .Todo-text.done {
     color: lightgrey;
     text-decoration: line-through;
+}
+
+.Todo-icons {
+
 }
