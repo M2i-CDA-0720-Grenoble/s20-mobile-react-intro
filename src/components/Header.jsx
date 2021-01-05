@@ -1,5 +1,5 @@
 import './Header.css';
-import M2iLogo from '../images/logo-m2I-V3.png';
+import { M2iLogo } from '../images';
 
 const items = [
   { text: 'Accueil', href: '/' },

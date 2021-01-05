@@ -1,8 +1,7 @@
 import './App.css';
 
-import TodoList from './components/TodoList';
-import Layout from './components/Layout';
 import { useState } from 'react';
+import { Layout, TodoList } from './components';
 
 // Cette façon d'écrire des fonctions est la nouvelle écriture en ES6
 // Ces deux écritures sont équivalentes:
@@ -31,6 +30,7 @@ const App = () => {
       // ...ainsi que la nouvelle tâche à ajouter
       newTodo
     ]);
+
     // Vide le champ "Ajouter une tâche"
     setNewTodo('');
   }
@@ -40,7 +40,12 @@ const App = () => {
       <h1>Ma liste de courses</h1>
       <TodoList todos={todos} />
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Entrez une nouvelle tâche" onChange={(event) => setNewTodo(event.target.value)} value={newTodo} />
+        <input
+          type="text"
+          placeholder="Entrez une nouvelle tâche"
+          onChange={(event) => setNewTodo(event.target.value)}
+          value={newTodo}
+        />
         <input type="submit" />
       </form>
     </Layout>
