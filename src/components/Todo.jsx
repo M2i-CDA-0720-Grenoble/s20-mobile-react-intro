@@ -11,7 +11,7 @@ import { Button } from '.';
 // const { text } = props;
 // Qui est elle-même l'équivalent de:
 // const text = props.text;
-const Todo = ({ text }) => {
+const Todo = ({ text, deleteTodo }) => {
   // Crée un état permettant de retenir si la tâche a été déclarée terminée ou non
   const [done, setDone] = useState(false);
 
@@ -20,7 +20,7 @@ const Todo = ({ text }) => {
       <input type="checkbox" className="Todo-check" onChange={(event) => setDone(event.target.checked)} />
       <h3 className={ 'Todo-text' + (done ? ' done' : '') }>{text}</h3>
       <div className="Todo-icons">
-        <Button color="red" dark>
+        <Button color="red" dark onClick={() => deleteTodo(text)}>
           <FaTrashAlt />
         </Button>
       </div>

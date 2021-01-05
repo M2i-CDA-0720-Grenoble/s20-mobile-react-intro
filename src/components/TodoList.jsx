@@ -17,11 +17,11 @@ import Todo from './Todo';
 // const { todos } = props;
 // Qui est elle-même l'équivalent de:
 // const todos = props.todos;
-const TodoList = ({ todos }) =>
+const TodoList = ({ todos, deleteTodo }) =>
   <ul className="TodoList">
     {
       todos.map(
-        (text, index) => <Todo key={index} text={text} />
+        (text, index) => <Todo key={index} text={text} deleteTodo={deleteTodo} />
       )
     }
   </ul>
