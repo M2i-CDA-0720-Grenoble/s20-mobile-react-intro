@@ -12,12 +12,13 @@ import { TodoContext } from '../contexts';
 // const { text } = props;
 // Qui est elle-même l'équivalent de:
 // const text = props.text;
-const Todo = ({ text }) => {
+const Todo = ({ index }) => {
+  // Récupère dans le contexte la liste des tâches à faire,
+  // ainsi que les fonctions qui permettent de la transformer
+  const { todos, updateTodo, deleteTodo } = useContext(TodoContext);
+  // Récupère la tâche représentée par ce composant dans la liste
+  const { text, done } = todos[index];
 
-  const { updateTodo, deleteTodo } = useContext(TodoContext);
-
-  // Crée un état permettant de retenir si la tâche a été déclarée terminée ou non
-  const [done, setDone] = useState(false);
   // Crée un état permettant de retenir si la tâche est en cours de modification
   const [editing, setEditing] = useState(false);
   // Crée un état permettant de retenir le contenu actuel du champ texte
@@ -31,7 +32,7 @@ const Todo = ({ text }) => {
     // Si le nouveau texte n'est pas vide
     if (newText !== '') {
       // Applique la modification
-      updateTodo(text, newText);
+      updateTodo(index, { text: newText, done });
       // Sort du mode "édition"
       setEditing(false);
     }
@@ -39,7 +40,11 @@ const Todo = ({ text }) => {
 
   return (
     <li className="Todo">
-      <input type="checkbox" className="Todo-check" onChange={(event) => setDone(event.target.checked)} />
+      <input
+        type="checkbox"
+        className="Todo-check"
+        onChange={(event) => updateTodo(index, { text, done: event.target.checked } )}
+      />
 
       {
         editing ?
@@ -62,7 +67,7 @@ const Todo = ({ text }) => {
         <Button color="yellow" onClick={() => setEditing(true)}>
           <FaEdit />
         </Button>
-        <Button color="red" dark onClick={() => deleteTodo(text)}>
+        <Button color="red" dark onClick={() => deleteTodo(index)}>
           <FaTrashAlt />
         </Button>
       </div>

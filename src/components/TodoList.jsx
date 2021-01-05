@@ -20,13 +20,14 @@ import { TodoContext } from '../contexts';
 // Qui est elle-même l'équivalent de:
 // const todos = props.todos;
 const TodoList = () => {
+  // Récupère la liste des tâches à faire dans le contexte
   const { todos } = useContext(TodoContext);
 
   return (
     <ul className="TodoList">
       {
         todos.map(
-          (text, index) => <Todo key={index} text={text} />
+          (todo, index) => <Todo key={index} index={index} />
         )
       }
     </ul>
