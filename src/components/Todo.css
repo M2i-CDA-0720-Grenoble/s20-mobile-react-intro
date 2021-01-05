@@ -17,7 +17,8 @@
     cursor: pointer;
 }
 
-.Todo-text {
+.Todo-text,
+.Todo-form {
     margin: 0 1em;
     flex-grow: 1;
 }

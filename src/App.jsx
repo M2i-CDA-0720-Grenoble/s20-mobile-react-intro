@@ -39,15 +39,25 @@ const App = () => {
   const deleteTodo = (text) => {
     // Remplace la liste des tâches existantes par une nouvelle liste contenant...
     setTodos(
-      // ...contenant toutes les tâches actuelle, sauf celle passée en paramètre
+      // ...toutes les tâches actuelle, sauf celle passée en paramètre
       todos.filter( (item) => item !== text )
+    );
+  }
+
+  const updateTodo = (text, newText) => {
+    // Remplace la liste des tâches existantes par une nouvelle liste...
+    setTodos (
+      // ...dans laquelle seul le texte recherché est remplacé par un nouveau texte
+      todos.map(
+        (item) => item === text ? newText : item
+      )
     );
   }
 
   return (
     <Layout>
       <h1>Ma liste de courses</h1>
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} />
       <form onSubmit={handleSubmit}>
         <input
           type="text"
