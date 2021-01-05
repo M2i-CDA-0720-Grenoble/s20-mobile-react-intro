@@ -1,6 +1,8 @@
 import './TodoList.css';
 
+import { useContext } from 'react';
 import Todo from './Todo';
+import { TodoContext } from '../contexts';
 
 // Lorsque l'on veut définir une fonction qui ne fait que renvoyer une valeur
 // (return), on en peut omettre les {} et le mot-clé "return"
@@ -17,14 +19,18 @@ import Todo from './Todo';
 // const { todos } = props;
 // Qui est elle-même l'équivalent de:
 // const todos = props.todos;
-const TodoList = ({ todos, deleteTodo, updateTodo }) =>
-  <ul className="TodoList">
-    {
-      todos.map(
-        (text, index) => <Todo key={index} text={text} deleteTodo={deleteTodo} updateTodo={updateTodo} />
-      )
-    }
-  </ul>
-;
+const TodoList = () => {
+  const { todos } = useContext(TodoContext);
+
+  return (
+    <ul className="TodoList">
+      {
+        todos.map(
+          (text, index) => <Todo key={index} text={text} />
+        )
+      }
+    </ul>
+  );
+}
 
 export default TodoList;

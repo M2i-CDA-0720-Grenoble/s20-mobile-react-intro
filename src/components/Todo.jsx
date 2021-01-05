@@ -1,7 +1,8 @@
 import './Todo.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaCheck, FaTrashAlt, FaEdit } from "react-icons/fa";
 import { Button } from '.';
+import { TodoContext } from '../contexts';
 
 // On peut "extraire" des propriétés des object JavaScript et les assigner
 // automatiquement à des variables portant le même nom avec l'écriture:
@@ -11,7 +12,10 @@ import { Button } from '.';
 // const { text } = props;
 // Qui est elle-même l'équivalent de:
 // const text = props.text;
-const Todo = ({ text, deleteTodo, updateTodo }) => {
+const Todo = ({ text }) => {
+
+  const { updateTodo, deleteTodo } = useContext(TodoContext);
+
   // Crée un état permettant de retenir si la tâche a été déclarée terminée ou non
   const [done, setDone] = useState(false);
   // Crée un état permettant de retenir si la tâche est en cours de modification
