@@ -23,10 +23,14 @@ const Todo = ({ text, deleteTodo, updateTodo }) => {
   const handleSubmit = (event) => {
     // Empêche le rechargement de la page
     event.preventDefault();
-    // Applique la modification
-    updateTodo(text, newText);
-    // Sort du mode "édition"
-    setEditing(false);
+
+    // Si le nouveau texte n'est pas vide
+    if (newText !== '') {
+      // Applique la modification
+      updateTodo(text, newText);
+      // Sort du mode "édition"
+      setEditing(false);
+    }
   }
 
   return (
@@ -42,7 +46,7 @@ const Todo = ({ text, deleteTodo, updateTodo }) => {
               value={newText}
               onChange={(event) => setNewText(event.target.value)}
             />
-            <Button color="blue" dark>
+            <Button color="blue" dark disabled={newText === ''}>
               <FaCheck />
             </Button>
           </form>

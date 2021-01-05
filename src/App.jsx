@@ -24,16 +24,19 @@ const App = () => {
   const handleSubmit = (event) => {
     // Empêche le rechargement de la page
     event.preventDefault();
-    // Remplace la liste des tâches existantes par une nouvelle liste contenant...
-    setTodos([
-      // ...toutes les tâches actuellement existantes...
-      ...todos,
-      // ...ainsi que la nouvelle tâche à ajouter
-      newTodo
-    ]);
 
-    // Vide le champ "Ajouter une tâche"
-    setNewTodo('');
+    // Si le champ texte n'est pas vide
+    if (newTodo !== '') {
+      // Remplace la liste des tâches existantes par une nouvelle liste contenant...
+      setTodos([
+        // ...toutes les tâches actuellement existantes...
+        ...todos,
+        // ...ainsi que la nouvelle tâche à ajouter
+        newTodo
+      ]);
+      // Vide le champ "Ajouter une tâche"
+      setNewTodo('');
+    }
   }
 
   const deleteTodo = (text) => {
@@ -65,7 +68,7 @@ const App = () => {
           onChange={(event) => setNewTodo(event.target.value)}
           value={newTodo}
         />
-        <Button color="blue" dark>
+        <Button color="blue" dark disabled={newTodo === ''}>
           <RiMenuAddLine /> Ajouter
         </Button>
       </form>
